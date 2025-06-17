@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@plugin "flyonui" {
+  themes: soft --default;
+}
+@import "flyonui/variants.css"; /* Require only if you want to use FlyonUI JS component */
+@source "../node_modules/flyonui/flyonui.js";
+@source "../views";
