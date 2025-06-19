@@ -16,7 +16,16 @@
     },
     "dependencies": {
         "@tailwindcss/vite": "^4.1.10",
+        "@tiptap/core": "^2.14.0",
+        "@tiptap/pm": "^2.14.0",
+        "@tiptap/starter-kit": "^2.14.0",
         "flowbite": "^3.1.2",
+        "flowbite-typography": "^1.0.5",
+        "simple-datatables": "^10.0.0",
         "tailwindcss": "^4.1.10"
-    }
+    },
+    "overrides": {
+    "prosemirror-model": "1.19.3"
+}
+
 }

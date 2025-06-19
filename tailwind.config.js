@@ -20,5 +20,10 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [
+        require('flowbite-typography'),
+        require('flowbite/plugin')({
+            wysiwyg: true,
+        }),
+      ],
 };

@@ -3,77 +3,29 @@
         <section class="p-4">
             <article class="max-w-7xl mx-auto items-center space-y-6">
                 <div class="space-y-3">
-                    <h3 class="text-3xl font-bold tracking-tight">Department of Finance Announces Rollout of 2024 Tax
-                        Refund
-                        Disbursements
-                    </h3>
+                    <h3 class="text-3xl font-bold tracking-tight">{{ $report->title }}</h3>
                     <div class="flex items-center space-x-4">
                         <span class="flex space-x-4 text-sm">
-                            <a href="#" class="underline underline-offset-2">Mark T. Rabago</a>
-                            <p>Jun 18, 2025 Updated 4hrs ago</p>
+                            <a href="#" class="underline underline-offset-2">{{ $report->author }}</a>
+                            <p>{{ date('M d, Y', strtotime($report->created_at)) }}</p>
                         </span>
                         <span class="flex items-center space-x-4">
-                            <a href="#"
-                                class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200">Finance</a>
-                            <a href="#"
-                                class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200">2024</a>
-                            <a href="#"
-                                class="bg-blue-100 text-blue-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200">Tax
-                                Refunds</a>
+                            @if (is_array($report->tags) || is_object($report->tags))
+                                @foreach ($report->tags as $tag)
+                                    <a href="#"
+                                        class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">
+                                        {{ $tag }}
+                                    </a>
+                                @endforeach
+                            @endif
                         </span>
                     </div>
                 </div>
                 <div class="flex flex-col items-center space-y-6">
                     <img src="{{ asset('images/mp_hero.JPG') }}" alt="" class="object-fill w-full rounded-md">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo, delectus. Voluptatem,
-                        soluta
-                        sequi. Rerum asperiores modi accusantium, eligendi libero fugit amet a officiis eum
-                        natus,
-                        suscipit voluptas earum adipisci? Doloremque, placeat tempora, ex harum error in
-                        repudiandae
-                        enim perspiciatis ab delectus saepe rem ad, molestiae excepturi! Laboriosam error ut
-                        libero.
-                        Temporibus eveniet totam hic ratione laboriosam assumenda esse laudantium ipsam incidunt
-                        corporis tempora aspernatur nam similique in, reiciendis, quam itaque omnis molestiae
-                        quaerat
-                        cupiditate? Delectus dolorum sed natus nobis assumenda minima, laboriosam animi
-                        doloribus
-                        architecto itaque veniam quis quia alias sunt placeat labore harum explicabo vero dolor
-                        beatae?
-                        Cumque facilis saepe amet voluptate et magni, ab libero incidunt tenetur. Laudantium
-                        facilis,
-                        laborum aliquam obcaecati veniam porro voluptatum sed corporis quam eligendi eos quasi
-                        odit
-                        atque consequatur, consequuntur eius maiores fugit.
+                        {{ $report->description }}
                     </p>
-                    <p>Libero ratione quidem non fuga quis
-                        ab omnis
-                        possimus tempore enim quae? Nobis nostrum inventore corrupti eius sequi saepe explicabo
-                        iusto
-                        nihil voluptatibus incidunt doloribus veritatis nulla, quisquam ipsa veniam nesciunt
-                        accusamus
-                        iure facere earum vel exercitationem suscipit temporibus ea consequuntur. Illo fuga iste
-                        laboriosam? Repudiandae, corrupti hic earum magnam, quia reiciendis voluptatum quisquam
-                        alias
-                        cumque magni libero nisi quo, qui consequuntur sed quidem assumenda beatae dolore sunt
-                        unde
-                        atque eum? Consequatur, reprehenderit odit dolor libero debitis dolores neque hic illo
-                        quam
-                        blanditiis ipsum minima accusamus iusto. Eum veniam consequatur delectus illum iure
-                        alias,
-                        laboriosam ut ducimus saepe tenetur unde maxime nobis, quas, sint vel laudantium beatae.
-                        Saepe
-                        numquam inventore rem quod esse mollitia ipsa aspernatur doloremque sunt tenetur
-                        praesentium
-                        voluptas non labore ducimus, neque asperiores! Magni, culpa. Aperiam maxime mollitia
-                        dolorum
-                        dicta, in atque! Dicta odio eligendi ad officia dolore ducimus necessitatibus debitis
-                        totam.
-                        Consectetur nostrum ea saepe. Necessitatibus quia dolorum, eligendi esse similique
-                        laborum alias
-                        error animi ab. Unde incidunt recusandae est officiis asperiores eum odit blanditiis
-                        placeat!</p>
                 </div>
                 <div class="flex justify-between items-center mb-6">
                     <h2 class="text-lg lg:text-2xl font-bold text-gray-900 dark:text-white">Discussion (20)</h2>
