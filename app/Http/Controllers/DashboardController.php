@@ -44,9 +44,11 @@ class DashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Report $report)
     {
-        //
+        return view('news.edit', [
+            'report' => $report
+        ]);
     }
 
     /**
