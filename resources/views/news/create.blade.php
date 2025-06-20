@@ -2,7 +2,8 @@
     <section class="bg-white dark:bg-gray-900 h-screen">
         <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
             <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Create News Report</h2>
-            <form action="#">
+            <form action="/dashboard/news" method="POST">
+                @csrf
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
                     <div class="sm:col-span-2">
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -10,7 +11,7 @@
                         </label>
                         <input type="text" name="title" id="title"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Enter title" required="">
+                            placeholder="Enter title" required>
                     </div>
                     <div class="sm:col-span-2">
                         <label for="description"
@@ -699,25 +700,28 @@
                                 </div>
                             </div>
                             <div class="p-2 bg-white rounded-b-lg w-full dark:bg-gray-800">
-                                <label for="wysiwyg-example" class="sr-only">Publish post</label>
-                                <div
-                                    id="wysiwyg-example"class="block w-full h-48 px-0 text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400">
+                                <div id="wysiwyg-example"
+                                    class="block w-full px-0 text-sm text-gray-800 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400">
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <textarea id="sourceCode" name="description" class="hidden"></textarea>
                     <div class="w-full col-span-2">
                         <label for="brand"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tags</label>
-                        <input type="text" name="brand" id="brand"
+                        <input type="text" name="tags" id="brand"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Format: tag, tag, tag..." required="">
+                            placeholder="Format: tag, tag, tag..." required>
                     </div>
                 </div>
-                <button type="submit"
-                    class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-800">
-                    Publish News
-                </button>
+                <div class="flex items-center space-x-4 mt-4">
+                    <button type="submit" id="submitButton"
+                        class="inline-flex items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-blue-800">
+                        Publish News
+                    </button>
+                    <p class="text-sm">Written by {{ auth()->user()->name }}</p>
+                </div>
             </form>
         </div>
     </section>
@@ -791,6 +795,7 @@
                 // tip tap editor setup
                 const editor = new Editor({
                     element: document.querySelector('#wysiwyg-example'),
+                    content: '',
                     extensions: [
                         StarterKit.configure({
                             textStyle: false,
@@ -820,9 +825,24 @@
                     ],
                     editorProps: {
                         attributes: {
-                            class: 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none h-96',
+                            class: 'format lg:format-lg dark:format-invert focus:outline-none format-blue max-w-none',
                         },
                     }
+                });
+
+                const sourceCodeWrapper = document.getElementById('sourceCode');
+
+                // set up custom event listeners for the buttons
+                document.getElementById('submitButton').addEventListener('click', () => {
+
+                    // basically just use editor.getHTML(); to get the raw html
+
+                    sourceCodeWrapper.innerHTML = editor.getHTML()
+                        .replace(/&/g, "&amp;") // Escape & character
+                        .replace(/</g, "&lt;") // Escape < character
+                        .replace(/>/g, "&gt;") // Escape > character
+                        .replace(/"/g, "&quot;") // Escape " character
+                        .replace(/'/g, "&#039;"); // Escape ' character
                 });
 
                 // set up custom event listeners for the buttons

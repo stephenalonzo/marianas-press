@@ -9,6 +9,15 @@ class Report extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'slug',
+        'user_id',
+        'author',
+        'description',
+        'tags'
+    ];
+
     protected $casts = [
         'tags' => 'array'
     ];

@@ -25,6 +25,8 @@ Route::get('/news/{report:slug}', [ReportController::class, 'show']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard/news/create', [DashboardController::class, 'create']);
 
+Route::post('/dashboard/news', [ReportController::class, 'create']);
+
 Route::get('/contact-us', function () {
     return view('contact-us');
 });

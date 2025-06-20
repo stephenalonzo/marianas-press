@@ -74,13 +74,16 @@
                                 <th scope="row"
                                     class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <a href="/news/{{ str_replace(' ', '-', strtolower($report->title)) }}"
+                                        target="_blank"
                                         class="text-blue-700 hover:text-blue-900 transition">{{ $report->title }}</a>
                                 </th>
                                 <td class="px-6 py-4">
                                     {{ $report->author }}
                                 </td>
                                 <td class="px-6 py-4">
-                                    {{ implode(', ', $report->tags) }}
+                                    @if (is_array($report->tags) || is_object($report->tags))
+                                        {{ implode(', ', $report->tags) }}
+                                    @endif
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $report->created_at }}

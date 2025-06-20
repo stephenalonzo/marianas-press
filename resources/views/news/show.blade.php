@@ -22,9 +22,9 @@
                     </div>
                 </div>
                 <div class="flex flex-col items-center space-y-6">
-                    <img src="{{ asset('images/mp_hero.JPG') }}" alt="" class="object-fill w-full rounded-md">
+                    {{-- <img src="{{ asset('images/mp_hero.JPG') }}" alt="" class="object-fill w-full rounded-md"> --}}
                     <p>
-                        {{ $report->description }}
+                        {!! htmlspecialchars_decode($report->description) !!}
                     </p>
                 </div>
                 <div class="flex justify-between items-center mb-6">

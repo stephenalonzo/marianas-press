@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ReportRequest;
 use App\Models\Report;
 use Illuminate\Http\Request;
 
@@ -18,9 +19,20 @@ class ReportController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(ReportRequest $request)
     {
-        //
+        $validated = $request->validated();
+
+        $validated['description'] = e($validated['description']);
+        $validated['slug'] = str_replace(' ', '-', strtolower($validated['title']));
+        $validated['user_id'] = auth()->user()->id;
+        $validated['author'] = auth()->user()->name;
+        $validated['tags'] = explode(", ", $validated['tags']);
+        // dd($validated['tags']);
+
+        Report::create($validated);
+
+        return redirect('/news/' . $validated['slug']);
     }
 
     /**
