@@ -4,9 +4,8 @@
             {{ __('Dashboard') }}
         </h2>
     </x-slot>
-
     <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="max-w-8xl mx-auto sm:px-6">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <div class="p-4 bg-white dark:bg-gray-900">
                     <label for="table-search" class="sr-only">Search</label>
@@ -56,7 +55,10 @@
                                 Updated At
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                {{--  --}}
+
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+
                             </th>
                         </tr>
                     </thead>
@@ -93,7 +95,11 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     <a href="/dashboard/news/edit/{{ $report->id }}"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                        class="font-medium px-4 py-2 rounded-md bg-green-600 text-white dark:bg-green-500 hover:underline">Edit</a>
+                                </td>
+                                <td class="px-6 py-4">
+                                    <a href="/dashboard/news/edit/{{ $report->id }}"
+                                        class="font-medium px-4 py-2 rounded-md bg-red-600 text-white dark:bg-red-500 hover:underline">Delete</a>
                                 </td>
                             </tr>
                         @endforeach

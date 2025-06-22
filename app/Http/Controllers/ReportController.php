@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ReportRequest;
 use App\Models\Report;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -28,7 +29,6 @@ class ReportController extends Controller
         $validated['user_id'] = auth()->user()->id;
         $validated['author'] = auth()->user()->name;
         $validated['tags'] = explode(", ", $validated['tags']);
-        // dd($validated['tags']);
 
         Report::create($validated);
 
@@ -48,8 +48,34 @@ class ReportController extends Controller
      */
     public function show(Report $report)
     {
+        // $date1 = date_create($report->created_at);
+        // $date2 = date_create($report->updated_at);
+        // $diff = date_diff($date1, $date2);
+
+        $seconds_ago = (time() - strtotime($report->created_at));
+
+        if ($seconds_ago >= 31536000) {
+            $days_ago = "Updated " . intval($seconds_ago / 31536000) . " years ago";
+        } elseif ($seconds_ago >= 2419200) {
+            $days_ago = "Updated " . intval($seconds_ago / 2419200) . " months ago";
+        } elseif ($seconds_ago >= 86400) {
+            $days_ago = "Updated " . intval($seconds_ago / 86400) . " days ago";
+        } elseif ($seconds_ago >= 3600) {
+            $days_ago = "Updated " . intval($seconds_ago / 3600) . " hours ago";
+        } elseif ($seconds_ago >= 120) {
+            $days_ago = "Updated " . intval($seconds_ago / 60) . " minutes ago";
+        } elseif ($seconds_ago >= 60) {
+            $days_ago = "Updated a minute ago";
+        } else {
+            $days_ago = "Updated less than a minute ago";
+        }
+
+        $title = $report->title;
+
         return view('news.show', [
-            'report' => $report
+            'report' => $report,
+            'days_ago' => $days_ago,
+            'title' => $title
         ]);
     }
 
@@ -64,9 +90,19 @@ class ReportController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ReportRequest $request, Report $report)
     {
-        //
+        $validated = $request->validated();
+
+        $validated['description'] = e($validated['description']);
+        $validated['slug'] = str_replace(' ', '-', strtolower($validated['title']));
+        $validated['user_id'] = auth()->user()->id;
+        $validated['author'] = auth()->user()->name;
+        $validated['tags'] = explode(", ", $validated['tags']);
+
+        $report->update($validated);
+
+        return redirect('/dashboard');
     }
 
     /**

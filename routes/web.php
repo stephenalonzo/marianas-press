@@ -3,6 +3,7 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
+use App\Models\Report;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -28,6 +29,8 @@ Route::get('/dashboard/news/create', [DashboardController::class, 'create']);
 
 Route::post('/dashboard/news', [ReportController::class, 'create']);
 
+// Route::put('/dashboard/news/update/{report}', [ReportController::class, 'update']);
+Route::put('/dashboard/news/edit/{report}', [ReportController::class, 'update']);
 Route::get('/dashboard/news/edit/{report}', [DashboardController::class, 'edit']);
 
 Route::get('/contact-us', function () {

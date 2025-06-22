@@ -4,9 +4,9 @@
         <div class="p-16 mx-auto max-w-screen-xl text-center">
             <a href="#"
                 class="inline-flex justify-between items-center py-1 px-1 pe-4 mb-7 text-sm text-blue-700 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800">
-                <span class="text-xs bg-blue-600 rounded-full text-white px-4 py-1.5 me-3">Today's Top Story</span>
+                <span class="text-xs bg-blue-600 rounded-full text-white px-4 py-1.5 me-3">Today's Newest Story</span>
                 <span class="text-sm font-medium">Department of Finance Announces Rollout of 2024 Tax Refund
-                    Disbursements! Learn More</span>
+                    Disbursements</span>
                 <svg class="w-2.5 h-2.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                     fill="none" viewBox="0 0 6 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -45,11 +45,11 @@
             </form>
         </div>
     </section>
-    <main class="p-8 space-y-8">
-        <section class="p-4">
-            <div class="max-w-7xl mx-auto items-center space-y-6">
-                <h3 class="text-3xl font-bold tracking-tight">Latest News</h3>
-                <div class="grid grid-cols-3 gap-x-4 gap-y-8">
+    <main class="p-8">
+        <section class="space-y-8">
+            <div class="max-w-7xl mx-auto space-y-6">
+                <h3 class="text-3xl font-bold tracking-tight text-left">Latest News</h3>
+                <div class="grid grid-cols-3 gap-8">
                     <div
                         class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">
@@ -208,11 +208,9 @@
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="p-4">
-            <div class="max-w-7xl mx-auto items-center space-y-6">
+            <div class="max-w-7xl mx-auto space-y-6">
                 <h3 class="text-3xl font-bold tracking-tight">Sports</h3>
-                <div class="grid grid-cols-3 gap-x-4 gap-y-8">
+                <div class="grid grid-cols-3 gap-8">
                     <div
                         class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
                         <a href="#">

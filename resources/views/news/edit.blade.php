@@ -1,8 +1,8 @@
 <x-app-layout>
     <section class="bg-white dark:bg-gray-900 h-screen">
-        <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+        <div class="py-8 px-4 mx-auto max-w-8xl lg:py-16">
             <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Create News Report</h2>
-            <form action="/dashboard/news/edit" method="POST">
+            <form action="/dashboard/news/edit/{{ $report->id }}" method="POST">
                 @csrf
                 @method('PUT')
                 <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">

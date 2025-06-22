@@ -1,13 +1,15 @@
 <x-main-layout>
+    @section('title', $report->title)
     <div class="p-8 space-y-8">
         <section class="p-4">
             <article class="max-w-7xl mx-auto items-center space-y-6">
                 <div class="space-y-3">
-                    <h3 class="text-3xl font-bold tracking-tight">{{ $report->title }}</h3>
+                    <h1 class="text-3xl font-bold tracking-tight">{{ $report->title }}</h1>
                     <div class="flex items-center space-x-4">
                         <span class="flex space-x-4 text-sm">
                             <a href="#" class="underline underline-offset-2">{{ $report->author }}</a>
                             <p>{{ date('M d, Y', strtotime($report->created_at)) }}</p>
+                            <p>{{ $report->updated_at != null ? $days_ago : '' }}</p>
                         </span>
                         <span class="flex items-center space-x-4">
                             @if (is_array($report->tags) || is_object($report->tags))
