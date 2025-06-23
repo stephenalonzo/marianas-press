@@ -14,7 +14,17 @@ class ReportController extends Controller
      */
     public function index()
     {
-        //
+        $reports = Report::orderBy('updated_at', 'desc')->whereNot(
+            function ($query) {
+                $query->where('tags', 'like', '%sports%');
+            }
+        )->get();
+
+        return view('index', [
+            'latest' => Report::orderBy('created_at', 'desc')->first(),
+            'reports' => $reports,
+            'sports' => Report::where('tags', 'like', '%sports%')->latest()->get()
+        ]);
     }
 
     /**
@@ -48,10 +58,6 @@ class ReportController extends Controller
      */
     public function show(Report $report)
     {
-        // $date1 = date_create($report->created_at);
-        // $date2 = date_create($report->updated_at);
-        // $diff = date_diff($date1, $date2);
-
         $seconds_ago = (time() - strtotime($report->created_at));
 
         if ($seconds_ago >= 31536000) {

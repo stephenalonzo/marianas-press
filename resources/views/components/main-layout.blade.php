@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title') | MP</title>
+    <title>@yield('title') | Marianas Press</title>
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
 </head>
 
-<body class="flex flex-col h-screen justify-between">
+<body class="flex flex-col min-h-screen justify-between">
     <header>
         <nav class="bg-white dark:bg-gray-900 w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -129,7 +129,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#"
+                            <a href="/meet-the-team"
                                 class="block py-2 px-3 bg-blue-700 rounded-sm md:bg-transparent md:p-0  hover:text-blue-700 transition">
                                 About Us
                             </a>
@@ -139,8 +139,10 @@
             </div>
         </nav>
     </header>
-    {{ $slot }}
-    <footer class="bg-gray-50 dark:bg-gray-900">
+    <main class="w-full">
+        {{ $slot }}
+    </main>
+    <footer class="mt-auto bg-gray-50 dark:bg-gray-900">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
