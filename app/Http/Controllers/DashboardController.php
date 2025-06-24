@@ -13,7 +13,7 @@ class DashboardController extends Controller
     public function index()
     {
         return view('dashboard', [
-            'reports' => Report::orderBy('updated_at', 'desc')->get()
+            'reports' => Report::orderBy('updated_at', 'desc')->filter(request(['search']))->get()
         ]);
     }
 

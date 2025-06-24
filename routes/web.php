@@ -21,18 +21,21 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', [ReportController::class, 'index'])->name('Home');
 
+Route::get('/news/sports', [ReportController::class, 'allSports'])->name('Sports');
 Route::get('/news/{report:slug}', [ReportController::class, 'show']);
+Route::get('/news', [ReportController::class, 'allReports'])->name('News');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard/news/create', [DashboardController::class, 'create']);
 
+Route::get('/dashboard/search', [DashboardController::class, 'index']);
 Route::post('/dashboard/news', [ReportController::class, 'create']);
 
 Route::get('/meet-the-team', [UserController::class, 'index'])->name('About Us');
 
 // Route::put('/dashboard/news/update/{report}', [ReportController::class, 'update']);
-Route::put('/dashboard/news/edit/{report}', [ReportController::class, 'update']);
 Route::get('/dashboard/news/edit/{report}', [DashboardController::class, 'edit']);
+Route::put('/dashboard/news/edit/{report}', [ReportController::class, 'update']);
 
 Route::get('/contact-us', function () {
     return view('contact-us');

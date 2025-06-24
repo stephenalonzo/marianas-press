@@ -797,7 +797,7 @@
                 // tip tap editor setup
                 const editor = new Editor({
                     element: document.querySelector('#wysiwyg-example'),
-                    content: '{!! htmlspecialchars_decode($report->description) !!}',
+                    content: `{!! html_entity_decode($report->description) !!}`,
                     extensions: [
                         StarterKit.configure({
                             textStyle: false,

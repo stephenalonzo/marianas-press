@@ -48,7 +48,12 @@
     <main class="p-8">
         <section class="space-y-8">
             <div class="max-w-7xl mx-auto space-y-6">
-                <h3 class="text-3xl font-bold tracking-tight text-left">Latest News</h3>
+                <div class="flex items-center space-x-4">
+                    <h3 class="text-3xl font-bold tracking-tight text-left">Latest News</h3>
+                    <span>
+                        <a href="/news" class="text-blue-700 underline underline-offset-2">More &rarr;</a>
+                    </span>
+                </div>
                 <div class="grid grid-cols-3 gap-8">
                     @foreach ($reports as $report)
                         <div
@@ -85,7 +90,12 @@
                 </div>
             </div>
             <div class="max-w-7xl mx-auto space-y-6">
-                <h3 class="text-3xl font-bold tracking-tight">Sports</h3>
+                <div class="flex items-center space-x-4">
+                    <h3 class="text-3xl font-bold tracking-tight text-left">Sports</h3>
+                    <span>
+                        <a href="/news/sports" class="text-blue-700 underline underline-offset-2">More &rarr;</a>
+                    </span>
+                </div>
                 <div class="grid grid-cols-3 gap-8">
                     @foreach ($sports as $sport)
                         <div

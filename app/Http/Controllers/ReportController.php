@@ -27,6 +27,26 @@ class ReportController extends Controller
         ]);
     }
 
+    public function allReports()
+    {
+        $reports = Report::orderBy('updated_at', 'desc')->whereNot(
+            function ($query) {
+                $query->where('tags', 'like', '%sports%');
+            }
+        )->latest()->paginate(2);
+
+        return view('news.index', [
+            'reports' => $reports
+        ]);
+    }
+
+    public function allSports()
+    {
+        return view('news.sports', [
+            'sports' => Report::where('tags', 'like', '%sports%')->latest()->paginate(2)
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

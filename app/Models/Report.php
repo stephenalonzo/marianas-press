@@ -21,4 +21,14 @@ class Report extends Model
     protected $casts = [
         'tags' => 'array'
     ];
+
+    public function scopeFilter($query, array $filters)
+    {
+        if ($filters['search'] ?? false) {
+            $query->where('title', 'like', '%' . request('search') . '%')
+                ->orWhere('tags', 'like', '%' . request('search') . '%')
+                ->orWhere('description', 'like', '%' . request('search') . '%')
+                ->orWhere('author', 'like', '%' . request('search') . '%');
+        }
+    }
 }
