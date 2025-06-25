@@ -55,38 +55,44 @@
                     </span>
                 </div>
                 <div class="grid grid-cols-3 gap-8">
-                    @foreach ($reports as $report)
-                        <div
-                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm flex flex-col justify-between dark:bg-gray-800 dark:border-gray-700">
-                            <a href="/news/{{ $report->slug }}">
-                                <img class="rounded-t-lg object-none w-full h-48"
-                                    src="{{ asset('images/mp_logo.png') }}" alt="" />
-                            </a>
-                            <div class="p-5">
-                                <a href="#">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        {{ $report->title }}</h5>
+                    @unless (count($reports) == 0)
+                        @foreach ($reports as $report)
+                            <div
+                                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm flex flex-col justify-between h-auto dark:bg-gray-800 dark:border-gray-700">
+                                <a href="/news/{{ $report->slug }}">
+                                    <img class="rounded-t-lg object-none w-full h-48"
+                                        src="{{ asset('images/mp_logo.png') }}" alt="" />
                                 </a>
-                                <div class="space-y-3">
-                                    <p class="text-sm">
-                                        {{ date('M d, Y', strtotime($report->created_at)) }}
-                                    </p>
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                        {{ str_replace('&nbsp;', '', strip_tags(html_entity_decode(preg_replace('/(.*?[?!.](?=\s|$)).*/', '\1', $report->description)))) }}
-                                    </p>
+                                <div class="p-5">
+                                    <a href="#">
+                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                            {{ $report->title }}</h5>
+                                    </a>
+                                    <div class="space-y-3">
+                                        <p class="text-sm">
+                                            {{ date('M d, Y', strtotime($report->created_at)) }}
+                                        </p>
+                                        <p class="mb-3 font-normal text-gray-700 truncate dark:text-gray-400">
+                                            {{ str_replace('&nbsp;', '', strip_tags(html_entity_decode($report->description))) }}
+                                        </p>
+                                    </div>
                                 </div>
-                                <a href="/news/{{ $report->slug }}"
-                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    Read more
-                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                    </svg>
-                                </a>
+                                <div class="p-5">
+                                    <a href="/news/{{ $report->slug }}"
+                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Read more
+                                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                        </svg>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @else
+                        <p>No news found.</p>
+                    @endunless
                 </div>
             </div>
             <div class="max-w-7xl mx-auto space-y-6">
@@ -97,38 +103,42 @@
                     </span>
                 </div>
                 <div class="grid grid-cols-3 gap-8">
-                    @foreach ($sports as $sport)
-                        <div
-                            class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm flex flex-col justify-between dark:bg-gray-800 dark:border-gray-700">
-                            <a href="/news/{{ $sport->slug }}">
-                                <img class="rounded-t-lg object-none w-full h-48"
-                                    src="{{ asset('images/mp_logo.png') }}" alt="" />
-                            </a>
-                            <div class="p-5">
-                                <a href="#">
-                                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                        {{ $sport->title }}</h5>
+                    @unless (count($sports) == 0)
+                        @foreach ($sports as $sport)
+                            <div
+                                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm flex flex-col justify-between dark:bg-gray-800 dark:border-gray-700">
+                                <a href="/news/{{ $sport->slug }}">
+                                    <img class="rounded-t-lg object-none w-full h-48"
+                                        src="{{ asset('images/mp_logo.png') }}" alt="" />
                                 </a>
-                                <div class="space-y-3">
-                                    <p class="text-sm">
-                                        {{ date('M d, Y', strtotime($sport->created_at)) }}
-                                    </p>
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                        {{ str_replace('&nbsp;', '', strip_tags(html_entity_decode(preg_replace('/(.*?[?!.](?=\s|$)).*/', '\1', $sport->description)))) }}
-                                    </p>
+                                <div class="p-5">
+                                    <a href="#">
+                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                            {{ $sport->title }}</h5>
+                                    </a>
+                                    <div class="space-y-3">
+                                        <p class="text-sm">
+                                            {{ date('M d, Y', strtotime($sport->created_at)) }}
+                                        </p>
+                                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                                            {{ str_replace('&nbsp;', '', strip_tags(html_entity_decode(preg_replace('/(.*?[?!.](?=\s|$)).*/', '\1', $sport->description)))) }}
+                                        </p>
+                                    </div>
+                                    <a href="/news/{{ $sport->slug }}"
+                                        class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                        Read more
+                                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                        </svg>
+                                    </a>
                                 </div>
-                                <a href="/news/{{ $sport->slug }}"
-                                    class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                                    Read more
-                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true"
-                                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                            stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                    </svg>
-                                </a>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
+                    @else
+                        <p>No news for sports found.</p>
+                    @endunless
                 </div>
             </div>
         </section>

@@ -152,26 +152,15 @@
                             Press</span>
                     </a>
                 </div>
-                <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                <div class="grid grid-cols-2 gap-8 sm:gap-6">
                     <div>
                         <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Resources</h2>
                         <ul class="text-gray-500 dark:text-gray-400 font-medium">
                             <li class="mb-4">
-                                <a href="/" class="hover:underline">Flowbite</a>
+                                <a href="/" class="hover:underline">JVA's</a>
                             </li>
                             <li>
-                                <a href="https://tailwindcss.com/" class="hover:underline">Tailwind CSS</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">Follow us</h2>
-                        <ul class="text-gray-500 dark:text-gray-400 font-medium">
-                            <li class="mb-4">
-                                <a href="https://github.com/themesberg/flowbite" class="hover:underline ">Github</a>
-                            </li>
-                            <li>
-                                <a href="https://discord.gg/4eeurUVvTy" class="hover:underline">Discord</a>
+                                <a href="https://tailwindcss.com/" class="hover:underline">Surveys</a>
                             </li>
                         </ul>
                     </div>
@@ -195,7 +184,8 @@
                         Press</a>. All Rights Reserved.
                 </span>
                 <div class="flex mt-4 sm:justify-center sm:mt-0">
-                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
+                    <a href="https://www.facebook.com/p/Marianas-Press-61568443177517/"
+                        class="text-gray-500 hover:text-gray-900 dark:hover:text-white" target="_blank">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                             fill="currentColor" viewBox="0 0 8 19">
                             <path fill-rule="evenodd"
@@ -204,7 +194,8 @@
                         </svg>
                         <span class="sr-only">Facebook page</span>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                    <a href="https://www.instagram.com/marianaspress/?hl=en"
+                        class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5" target="_blank">
                         <svg id="instagram" fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="16px" height="16px"
                             viewBox="0 0 169.063 169.063" style="enable-background:new 0 0 169.063 169.063;"
@@ -225,7 +216,8 @@
                         </svg>
                         <span class="sr-only">Instagram page</span>
                     </a>
-                    <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5">
+                    <a href="https://www.youtube.com/@MarianasPress"
+                        class="text-gray-500 hover:text-gray-900 dark:hover:text-white ms-5" target="_blank">
                         <svg width="16px" height="16px" viewBox="0 0 32 32" id="icon"
                             xmlns="http://www.w3.org/2000/svg" fill="currentColor">
                             <defs>
@@ -240,7 +232,7 @@
                             <rect id="_Transparent_Rectangle_" data-name="&lt;Transparent Rectangle&gt;"
                                 class="cls-1" width="16" height="16" />
                         </svg>
-                        <span class="sr-only">Dribbble account</span>
+                        <span class="sr-only">Youtube account</span>
                     </a>
                 </div>
             </div>

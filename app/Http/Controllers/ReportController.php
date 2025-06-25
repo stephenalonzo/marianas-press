@@ -14,11 +14,11 @@ class ReportController extends Controller
      */
     public function index()
     {
-        $reports = Report::orderBy('updated_at', 'desc')->whereNot(
+        $reports = Report::orderBy('created_at', 'desc')->whereNot(
             function ($query) {
                 $query->where('tags', 'like', '%sports%');
             }
-        )->get();
+        )->limit(6)->get();
 
         return view('index', [
             'latest' => Report::orderBy('created_at', 'desc')->first(),
@@ -33,7 +33,7 @@ class ReportController extends Controller
             function ($query) {
                 $query->where('tags', 'like', '%sports%');
             }
-        )->latest()->paginate(2);
+        )->latest()->filter(request(['search']))->get();
 
         return view('news.index', [
             'reports' => $reports
@@ -43,7 +43,7 @@ class ReportController extends Controller
     public function allSports()
     {
         return view('news.sports', [
-            'sports' => Report::where('tags', 'like', '%sports%')->latest()->paginate(2)
+            'sports' => Report::where('tags', 'like', '%sports%')->latest()->filter(request(['search']))->get()
         ]);
     }
 
