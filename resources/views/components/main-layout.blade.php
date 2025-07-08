@@ -13,23 +13,16 @@
 <body class="flex flex-col min-h-screen justify-between">
     <header>
         <nav class="bg-white dark:bg-gray-900 w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-            <div class="flex flex-wrap items-center justify-between mx-auto p-4">
-                <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <div
+                class="flex flex-wrap items-center justify-between lg:space-y-4 lg:justify-center xl:space-y-0 lg:space-x-4 xl:justify-between mx-auto p-4">
+                <a href="/" class="flex items-center space-x-3 lg:mt-3 xl:mt-0 rtl:space-x-reverse">
                     <img src="{{ asset('images/mp_logo.png') }}" class="h-8" alt="Marianas Press Logo">
                     <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Marianas
                         Press</span>
                 </a>
-                <div class="flex md:order-2 space-x-3 md:space-x-3 rtl:space-x-reverse">
-                    <a href="/contact-us"
-                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                        Contact Us
-                    </a>
-                    <a href="/login"
-                        class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
-                        Log In
-                    </a>
+                <div class="flex lg:order-2 space-x-3 lg:space-x-3 lg:hidden rtl:space-x-reverse">
                     <button data-collapse-toggle="navbar-sticky" type="button"
-                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+                        class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                         aria-controls="navbar-sticky" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -39,36 +32,36 @@
                         </svg>
                     </button>
                 </div>
-                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                <div class="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="navbar-sticky">
                     <ul
-                        class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                        class="flex flex-col p-4 lg:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 lg:space-x-8 rtl:space-x-reverse lg:flex-row lg:mt-0 lg:border-0 lg:bg-white dark:bg-gray-800 lg:dark:bg-gray-900 dark:border-gray-700">
                         <li>
                             <a href="/"
-                                class="block py-2 px-3 bg-blue-700 rounded-sm md:bg-transparent md:p-0 hover:text-blue-700 transition">
+                                class="block py-2 px-3 rounded-sm lg:bg-transparent lg:p-0 hover:text-blue-700 transition">
                                 Home
                             </a>
                         </li>
                         <li>
                             <a href="/news"
-                                class="block py-2 px-3 bg-blue-700 rounded-sm md:bg-transparent md:p-0  hover:text-blue-700 transition">
+                                class="block py-2 px-3 rounded-sm lg:bg-transparent lg:p-0  hover:text-blue-700 transition">
                                 News
                             </a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block py-2 px-3 bg-blue-700 rounded-sm md:bg-transparent md:p-0  hover:text-blue-700 transition">
+                                class="block py-2 px-3 rounded-sm lg:bg-transparent lg:p-0  hover:text-blue-700 transition">
                                 Pacific Mini Games
                             </a>
                         </li>
                         <li>
                             <a href="/news/sports"
-                                class="block py-2 px-3 bg-blue-700 rounded-sm md:bg-transparent md:p-0  hover:text-blue-700 transition">
+                                class="block py-2 px-3 rounded-sm lg:bg-transparent lg:p-0  hover:text-blue-700 transition">
                                 Sports
                             </a>
                         </li>
                         <li>
                             <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar"
-                                class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Special
+                                class="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 lg:w-auto dark:text-white lg:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 lg:dark:hover:bg-transparent">Special
                                 Projects
                                 <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                     fill="none" viewBox="0 0 10 6">
@@ -76,47 +69,47 @@
                                         stroke-width="2" d="m1 1 4 4 4-4" />
                                 </svg></button>
                             <div id="dropdownNavbar"
-                                class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+                                class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-4/5 mx-auto lg:w-44 dark:bg-gray-700 dark:divide-gray-600">
                                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-400"
                                     aria-labelledby="dropdownLargeButton">
                                     <li>
                                         <a href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">On
+                                            class="block p-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">On
                                             Defense</a>
                                     </li>
                                     <li>
                                         <a href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Flying
+                                            class="block p-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Flying
                                             Proas</a>
                                     </li>
                                     <li>
                                         <a href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Beyond
+                                            class="block p-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Beyond
                                             The Game</a>
                                     </li>
                                     <li>
                                         <a href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Asia's
+                                            class="block p-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Asia's
                                             Wellness Center</a>
                                     </li>
                                     <li>
                                         <a href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">MPOWERD
+                                            class="block p-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">MPOWERD
                                             Moment</a>
                                     </li>
                                     <li>
                                         <a href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Marianas
+                                            class="block p-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Marianas
                                             Islands Conservation Conference</a>
                                     </li>
                                     <li>
                                         <a href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">2024
+                                            class="block p-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">2024
                                             Chamber Gala</a>
                                     </li>
                                     <li>
                                         <a href="#"
-                                            class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mai
+                                            class="block p-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mai
                                             Teppanyaki at Crown Plaza</a>
                                     </li>
                                 </ul>
@@ -124,14 +117,26 @@
                         </li>
                         <li>
                             <a href="#"
-                                class="block py-2 px-3 bg-blue-700 rounded-sm md:bg-transparent md:p-0  hover:text-blue-700 transition">
+                                class="block py-2 px-3 rounded-sm lg:bg-transparent lg:p-0  hover:text-blue-700 transition">
                                 Classified Ads
                             </a>
                         </li>
                         <li>
                             <a href="/meet-the-team"
-                                class="block py-2 px-3 bg-blue-700 rounded-sm md:bg-transparent md:p-0  hover:text-blue-700 transition">
+                                class="block py-2 px-3 rounded-sm lg:bg-transparent lg:p-0  hover:text-blue-700 transition">
                                 About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contact-us"
+                                class="block py-2 px-3 rounded-sm lg:bg-transparent lg:p-0  hover:text-blue-700 transition">
+                                Contact Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/login"
+                                class="block py-2 px-3 rounded-sm lg:bg-transparent lg:p-0  hover:text-blue-700 transition">
+                                Log In
                             </a>
                         </li>
                     </ul>
@@ -144,8 +149,8 @@
     </main>
     <footer class="mt-auto bg-gray-50 dark:bg-gray-900">
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
-            <div class="md:flex md:justify-between">
-                <div class="mb-6 md:mb-0">
+            <div class="md:flex md:justify-between text-center">
+                <div class="mb-6 md:mb-0 flex items-center justify-center">
                     <a href="/" class="flex items-center">
                         <img src="{{ asset('images/mp_logo.png') }}" class="h-8 me-3" alt="Marianas Press Logo" />
                         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Marianas
@@ -178,12 +183,12 @@
                 </div>
             </div>
             <hr class="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
-            <div class="sm:flex sm:items-center sm:justify-between">
+            <div class="text-center sm:flex sm:items-center sm:justify-between">
                 <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">©
                     {{ date('Y', strtotime(now())) }} <a href="/" class="hover:underline">Marianas
                         Press</a>. All Rights Reserved.
                 </span>
-                <div class="flex mt-4 sm:justify-center sm:mt-0">
+                <div class="flex mt-4 justify-center sm:mt-0">
                     <a href="https://www.facebook.com/p/Marianas-Press-61568443177517/"
                         class="text-gray-500 hover:text-gray-900 dark:hover:text-white" target="_blank">
                         <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"

@@ -2,19 +2,22 @@
     @section('title', 'Home')
     <section
         class="bg-center bg-no-repeat bg-cover bg-gray-500 bg-blend-multiply bg-[url('https://miro.medium.com/v2/resize:fit:1400/1*nj76Hs3RYoUcW38-LyonlQ.jpeg')]">
-        <div class="p-16 mx-auto max-w-screen-xl text-center">
-            <a href="/news/{{ $latest->slug }}"
-                class="inline-flex justify-between items-center py-1 px-1 pe-4 mb-7 text-sm text-blue-700 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800">
-                <span class="text-xs bg-blue-600 rounded-full text-white px-4 py-1.5 me-3">Today's Newest Story</span>
-                <span class="text-sm font-medium">{{ $latest->title }}</span>
-                <svg class="w-2.5 h-2.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                    fill="none" viewBox="0 0 6 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="m1 9 4-4-4-4" />
-                </svg>
-            </a>
+        <div class="px-4 py-8 md:p-16 mx-auto max-w-screen-xl text-center">
+            {{-- @unless (empty($latest))
+                <a href="/news/{{ $latest->slug }}"
+                    class="inline-flex justify-between items-center py-1 px-1 pe-4 mb-7 text-sm text-blue-700 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800">
+                    <span class="text-xs bg-blue-600 rounded-full text-white px-4 py-1.5 me-3">Today's Newest Story</span>
+                    <span class="text-sm font-medium">{{ $latest->title }}</span>
+                    <svg class="w-2.5 h-2.5 ms-2 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="m1 9 4-4-4-4" />
+                    </svg>
+                </a>
+            @else
+            @endunless --}}
             <h1
-                class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl dark:text-white">
+                class="mb-4 text-3xl font-extrabold tracking-tight leading-none text-white md:text-5xl lg:text-6xl dark:text-white">
                 Striving to inform the public with deeply reported multimedia content focused on the issues that matter.
             </h1>
             <p class="mb-8 text-lg font-normal text-gray-300 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">
@@ -54,30 +57,29 @@
                         <a href="/news" class="text-blue-700 underline underline-offset-2">More &rarr;</a>
                     </span>
                 </div>
-                <div class="grid grid-cols-3 gap-8">
+                <div class="relative grid md:grid-cols-2 gap-8 lg:grid-cols-3">
                     @unless (count($reports) == 0)
                         @foreach ($reports as $report)
                             <div
-                                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm flex flex-col justify-between h-auto dark:bg-gray-800 dark:border-gray-700">
-                                <a href="/news/{{ $report->slug }}">
+                                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                                <a href="#">
                                     <img class="rounded-t-lg object-none w-full h-48"
                                         src="{{ asset('images/mp_logo.png') }}" alt="" />
                                 </a>
                                 <div class="p-5">
-                                    <a href="#">
-                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                            {{ $report->title }}</h5>
-                                    </a>
-                                    <div class="space-y-3">
-                                        <p class="text-sm">
-                                            {{ date('M d, Y', strtotime($report->created_at)) }}
-                                        </p>
-                                        <p class="mb-3 font-normal text-gray-700 truncate dark:text-gray-400">
-                                            {{ str_replace('&nbsp;', '', strip_tags(html_entity_decode($report->description))) }}
+                                    <div class="space-y-2">
+                                        <a href="/news/{{ $report->slug }}">
+                                            <h5
+                                                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                                {{ $report->title }}</h5>
+                                        </a>
+                                        <p class="text-sm text-gray-500">
+                                            {{ date('F d, Y', strtotime($report->created_at)) }}
                                         </p>
                                     </div>
-                                </div>
-                                <div class="p-5">
+                                    <p class="my-3 font-normal text-gray-700 dark:text-gray-400">
+                                        {{ str_replace('&nbsp;', '', strip_tags(html_entity_decode(preg_replace('/(.*?[?!.](?=\s|$)).*/', '\1', $report->description)))) . '...' }}
+                                    </p>
                                     <a href="/news/{{ $report->slug }}"
                                         class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                         Read more
@@ -102,28 +104,29 @@
                         <a href="/news/sports" class="text-blue-700 underline underline-offset-2">More &rarr;</a>
                     </span>
                 </div>
-                <div class="grid grid-cols-3 gap-8">
+                <div class="grid md:grid-cols-2 gap-8 lg:grid-cols-3">
                     @unless (count($sports) == 0)
                         @foreach ($sports as $sport)
                             <div
-                                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm flex flex-col justify-between dark:bg-gray-800 dark:border-gray-700">
-                                <a href="/news/{{ $sport->slug }}">
+                                class="max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+                                <a href="#">
                                     <img class="rounded-t-lg object-none w-full h-48"
                                         src="{{ asset('images/mp_logo.png') }}" alt="" />
                                 </a>
                                 <div class="p-5">
-                                    <a href="#">
-                                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                            {{ $sport->title }}</h5>
-                                    </a>
-                                    <div class="space-y-3">
-                                        <p class="text-sm">
-                                            {{ date('M d, Y', strtotime($sport->created_at)) }}
-                                        </p>
-                                        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                                            {{ str_replace('&nbsp;', '', strip_tags(html_entity_decode(preg_replace('/(.*?[?!.](?=\s|$)).*/', '\1', $sport->description)))) }}
+                                    <div class="space-y-2">
+                                        <a href="/news/{{ $sport->slug }}">
+                                            <h5
+                                                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                                                {{ $sport->title }}</h5>
+                                        </a>
+                                        <p class="text-sm text-gray-500">
+                                            {{ date('F d, Y', strtotime($sport->created_at)) }}
                                         </p>
                                     </div>
+                                    <p class="my-3 font-normal text-gray-700 dark:text-gray-400">
+                                        {{ str_replace('&nbsp;', '', strip_tags(html_entity_decode(preg_replace('/(.*?[?!.](?=\s|$)).*/', '\1', $sport->description)))) . '...' }}
+                                    </p>
                                     <a href="/news/{{ $sport->slug }}"
                                         class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                         Read more

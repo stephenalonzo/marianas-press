@@ -4,7 +4,7 @@
         <article class="max-w-7xl mx-auto items-center space-y-6">
             <div class="space-y-3">
                 <h1 class="text-3xl font-bold tracking-tight mt-4">{{ $report->title }}</h1>
-                <div class="flex items-center space-x-4">
+                <div class="flex flex-col md:items-center md:flex-row md:space-y-0 space-x-0 space-y-4 md:space-x-4">
                     <span class="flex space-x-4 text-sm">
                         <a href="#" class="underline underline-offset-2">{{ $report->author }}</a>
                         <p>{{ date('M d, Y', strtotime($report->created_at)) }}</p>
